@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html ng-app="romApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> רום מערכות התראה ותקשורת בע"מ</title>
+    <link rel="stylesheet" type="text/css" href="includes/style.css">
+    <link rel="shortcut icon" href="icons/favicon.ico">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <script src="scripts/menu.js"></script>
+    <script>
+
+        var hash;
+
+        var romApp = angular.module('romApp',[]);
+
+        romApp.controller('MainController', function($scope){
+            $scope.currentPage;
+           $scope.currentMainLink = '';
+           $scope.print = function(){
+               console.log('$scope.currentPage',$scope.currentPage,'$scope.currentMainLink',$scope.currentMainLink);
+           };
+
+           $('.main_links, .main_menu').click(function(){
+               setTimeout(function(){
+                   if($scope.currentPage == 'residential'){
+                       window.location.hash = "#residential";
+                   }else if($scope.currentPage == 'commercial'){
+                       window.location.hash = "#commercial";
+                   }
+               },100);
+           });
+            $(window).load(function(event) {
+                if(window.location.hash) {
+                    if (hash == '#commercial') {
+                        $scope.currentPage = 'commercial';
+                    } else if (hash == '#residential') {
+                        $scope.currentPage = 'residential';
+                    }
+                }else{
+                    $scope.currentPage = 'main';
+                }
+                $scope.$apply();
+            });
+        });
+
+        romApp.controller('OurCustomers',function($scope){
+            $scope.customers =[
+                {
+                    company:'Pelephone',
+                    img:'images/customers/pelephone.png',
+                    link:''
+                },
+
+                {
+                    company:'Ampal',
+                    img:'images/customers/ampal.png',
+                    link:''
+                },
+
+                {
+                    company:'Contram',
+                    img:'images/customers/contram.png',
+                    link:''
+                },
+
+                {
+                    company:'CTS',
+                    img:'images/customers/cts.png',
+                    link:''
+                },
+
+                {
+                    company:'Diplomat',
+                    img:'images/customers/diplomat.png',
+                    link:''
+                },
+
+                {
+                    company:'Gadot',
+                    img:'images/customers/GADOT.png',
+                    link:''
+                },
+
+                {
+                    company:'IAI',
+                    img:'images/customers/iai.png',
+                    link:''
+                },
+
+                {
+                    company:'ICTS',
+                    img:'images/customers/icts.png',
+                    link:''
+                },
+
+                {
+                    company:'Leumi Card',
+                    img:'images/customers/LeumiC.png',
+                    link:''
+                },
+
+                {
+                    company:'Mashbir',
+                    img:'images/customers/mashbir.png',
+                    link:''
+                },
+
+                {
+                    company:'NDS',
+                    img:'images/customers/NDS.png',
+                    link:''
+                },
+
+                {
+                    company:'Novolog',
+                    img:'images/customers/Novolog.png',
+                    link:''
+                }
+            ];
+        });
+
+        romApp.controller('CommercialCntrl',function($scope){
+            $scope.currentLink = '';
+            $('.submenu li').click(function(){
+                console.log('images/backgrounds/' + $scope.currentLink + '.jpg');
+                setTimeout(function(){
+                    if($scope.currentPage == 'commercial'){
+                        console.log('images/backgrounds/' + $scope.currentLink + '.jpg');
+                        $('header').css('background-image','url(images/backgrounds/' + $scope.currentLink + '.jpg)');
+                    }
+                },100);
+
+            });
+
+        });
+
+        romApp.controller('ResidentialCntrl',function($scope){
+            $scope.currentLink = '';
+            $('.submenu li').click(function(){
+                setTimeout(function(){
+                    if($scope.currentPage == 'residential'){
+                        console.log('images/backgrounds/' + $scope.currentLink + '.jpg');
+                        $('header').css('background-image','url(images/backgrounds/' + $scope.currentLink + '.jpg)');
+                    }
+                },100);
+
+            });
+        });
+
+        romApp.controller('aboutCtrl',function($scope){
+            $scope.currentLink = '';
+            $('.submenu li').click(function(){
+                setTimeout(function(){
+                    if($scope.currentPage == 'residential'){
+                        console.log('images/backgrounds/' + $scope.currentLink + '.jpg');
+                        $('header').css('background-image','url(images/backgrounds/' + $scope.currentLink + '.jpg)');
+                    }
+                },100);
+
+            });
+        });
+
+        romApp.controller('contactCtrl',function($scope){
+            $scope.currentLink = '';
+            $('.submenu li').click(function(){
+                setTimeout(function(){
+                    if($scope.currentPage == 'residential'){
+                        console.log('images/backgrounds/' + $scope.currentLink + '.jpg');
+                        $('header').css('background-image','url(images/backgrounds/' + $scope.currentLink + '.jpg)');
+                    }
+                },100);
+
+            });
+        });
+
+        $(window).load(function(event){
+            if(window.location.hash){
+                hash = window.location.hash;
+            }
+        });
+
+    </script>
+</head>
+<body>
+    <div id="page_wrapper" ng-controller="MainController">
+
+        <!-- Main page in which to choose which section a user would like to visit -->
+        <div class="main_links_wrapper" ng-show="currentPage == 'main'">
+            <div class="main_content_wrapper">
+                <div style="padding: 10px;" dir="rtl">
+                    <p>
+                        אנו, ב -<span class="mainColor"> רום מערכות</span> מכירים את הצרכים שלך:
+                    </p> <br>
+                    <ul style="list-style-type: disc;position: relative;right: 15px;">
+
+                        <li>שמירה על בטחון והגנת משפחתך ,ביתך,מפעלך ועסקך בעדיפות ראשונה ועליונה</li> <br>
+                        <li> מתן שירות מקצועי,מהיר ומקיף במשך 24 שעות ביממה,7 ימים בשבוע </li> <br>
+                        <li> שימוש בטכנולוגיות המתקדמות ביותר לפי תקן הבטיחות הנדרש בתעשיה </li> <br>
+
+                    </ul>
+
+                    <p>
+
+                        רום מערכות התראה ותקשורת מספקת ללקוחותיה שירותי אבטחה ביתיים,אבטחה למפעלים ולעסקים ,התקנת מערכות כיבוי אש, מערכת מצלמות אבטחה בטלוויזיה במעגל סגור תוך שימוש בטכנולוגיות מהמתקדמות והמפתוחות ביותר בשוק.
+
+                    </p>
+                <p>
+                     <a style="cursor: pointer"class="mainColor" ng-click=""> לחץ כאן  </a>
+                 ליצירת קשר מיידי ומהיר עם רום מערכות התראה ותקשורת בע"מ. </p>
+                </div>
+            </div>
+            <a href="index.html"><div class="mainPageLogo"></div></a>
+            <div class="main_links" id="commercial_main" ng-click="currentPage = 'commercial'; currentMainLink = 'commercial'"> <div class="click_here"> <p> שירותים מסחריים </p> </div> </div>
+            <div class="main_links" id="residential_main" ng-click="currentPage = 'residential'; currentMainLink = 'residential'"> <div class="click_here"> <p> שירותים פרטיים </p> </div> </div>
+            <div class="clear"></div>
+        </div>
+
+        <!-- Commercial Section -->
+        <div class="main_commercial_wrapper main" ng-show="currentPage == 'commercial'" >
+            <div class="fixLogoDetails">
+                <img src="images/FINAL2.png">
+                <p>רחובות, רציף הרכבת</p>
+                <p>טלפון 1 : 0544-245230</p>
+                <p>טלפון 2 : 0545-333370</p>
+                <p>פקס : 08-9361378</p>
+                <p>Rom@netvision.net.il</p>
+                <img src="icons/mobile-control.png">
+            </div>
+            <div class="left_content blackBg" ng-controller="CommercialCntrl">
+                <header style="background-image: url(images/comer2.jpg); background-position: center;background-repeat: no-repeat;">
+                    <script> document.write(main_menu) </script>
+                    <nav class="submenu">
+                        <ul>
+                            <li ng-class='{icon_hover:currentLink == "security"}' ng-click="currentLink = 'security'; " style="margin-left: 17px; width: 100px;height: 100px;background-image: url('images/icons/security1.png')"> <span> אבטחה </span>  </li>
+                            <li ng-class='{icon_hover:currentLink == "network"}' ng-click="currentLink = 'network'; " style="width: 100px;height: 100px;background-image: url('images/icons/network2.png')"> <span> רשתות </span> </li>
+                            <li ng-class='{icon_hover:currentLink == "fire"}' ng-click="currentLink = 'fire'; " style="width: 100px;height: 100px;background-image: url('images/icons/fire1.png')"> <span> גילוי אש </span> </li>
+                            <li ng-class='{icon_hover:currentLink == "accsses"}' ng-click="currentLink = 'accsses'; " style="width: 100px;height: 100px;background-image: url('images/icons/accsses4.png')"> <span> בקרת כניסה </span> </li>
+                            <li ng-class='{icon_hover:currentLink == "cctv"}' ng-click="currentLink = 'cctv'; " style="width: 100px;height: 100px;background-image: url('images/icons/CCTV2.png')"> <span> מצלמות </span> </li>
+                            <li ng-class='{icon_hover:currentLink == "support"}' ng-click="currentLink = 'support'; " style="width: 100px;height: 100px;background-image: url('images/icons/customer_service.png')"> <span> השגחה ופיקוח </span> </li>
+                        </ul>
+                    </nav>
+                </header>
+                <section dir="rtl">
+                    <div ng-if="currentLink == ''">
+                        <section class="comercialInfo">
+                            <h1>שירותים מסחריים</h1>
+                            <p>רום מערכות התראה ותקשורת בע"מ היא החברה האמינה והמקצועית ביותר באספקה והתקנה של מערכות טכנלוגיות מהמתקדמות ביותר שיש בשוק, מתחום האבטחה, גילוי האש,בקרות כניסה,טלוויזיה במעגל סגור ,תקשורת ועוד.
+                                העקרונות המנחים אותנו בחברת רום מערכות הם מתן שירותי פיקוח,השגחה ושירות לקוחות ברמה הגבוהה ביותר.
+                                הצוות וההנהלה של רום מערכות משתמשים בידע המקצועי והמצטבר של עשרות שנים של פרוייקטים מורכבים על מנת להתאים את הפתרון המתאים ביותר ללקוח תוך בחירת כלים טכנולוגיים מתקדמים ומתאימים.
+                            </p>
+                            <p>הקש בבקשה על אחד מן האייקונים הנמצאים בתפריט העליון על מנת ללמוד עוד על שירותינו.</p>
+                        </section>
+                    </div>
+                    <div ng-if="currentLink == 'security'">
+                        <h1>אבטחה</h1>
+                        <ol>
+                            <li>
+                                <span> גלאים </span>
+                                <BR>
+                                רום מערכות מציעה מערכת אזעקה קוויות ואלחוטיות, מ-8 אזורים ועד 255 אזורים בהתאם להיקף, התקציב, הצרכים ואופי ההגנה הנדרש.
+                                <BR>
+                                בסל המוצרים שלנו ניתן למצוא מגוון רחב של גלאים, למשל: גלאי נפח,גלאים פסיביים ואקטיבים,גלאי סורג,גלאים ועוד.
+                                <BR>
+                                לנוחיות הלקוח ולהגנה מלאה, יש אפשרות לחבר את מערכת האזעקה ישירות למוקד חיצוני,חיבור ללחצני מצוקה,שליטה והפעלה מרחוק,התראות בעזרת קווים סלולארים.
+                            </li>
+
+                            <li>
+                                <span>מצלמות אבטחה </span> <BR>
+                                גלויות: רום מערכות מבצעת התקנה של מערכת מצלמות אבטחה בטכנולוגיית טלוויזיה במעגל סגור למגוון שימושים.
+                                <BR>
+                                הטכנולוגייה של טלוויזיה במעגל סגור, מאפשרת לך כלקוח לצפות ולהקליט ארועים אשר מתרחשים במקומות אסטרטגים וחשובים שדורשים פיקוח של 24 שעות.
+                                <BR>
+                                חברתנו מציעה מגוון רחב של מוצרים מתחום מערכות ההקלטה והצילום:
+    <span class="secondOl">
+    *מצלמות צבעוניות עם רזולוציית HD
+    </span>
+    <span class="secondOl">
+     *מצלמות אינפרא אדום – ראיית לילה
+    </span>
+    <span class="secondOl">
+    *מצלמות IP
+    </span>
+    <span class="secondOl">
+    *מצלמות ממונעות(למעלה,למטה,ימינה,שמאלה,זום)
+    </span>
+
+                                סמויות: בנוסף למערכת המצלמות האבטחה הגלויות, רום מערכות התראה ותקשורת מספקת עוד דרך יצירתית לצפות ולהקליט ארועים אשר מתרחשים במקומות אסטרטגיים ואין שום דרך לגלות אותם.
+
+                            </li>
+
+                            <li>
+                                <span> DVR </span>
+                                <BR>
+                                מערכת הקלטת מצלמות במעגל סגור(DVR) שדרכן ניתן לצפות בזמן אמת במצלמות האבטחה, לשלוט במצלמות ממונעות, לבצע שיחזור וגיבוי ולהפעיל מסרים.
+                                שרתיי וידיאו לאיחסון הקלטות.
+                                <BR>
+                                אינטגרציה מלאה בין מערכת מצלמות האבטחה לבין מערכת האזעקה.
+                            </li>
+                        </ol>
+                    </div>
+                    <div ng-if="currentLink == 'network'">
+                        <section class="networkStyle">
+                            <h1>רשתות תקשורת</h1>
+                            <p>
+
+
+                                רום מערכות התראה ותקשורת בע"מ מספקים פתרונות תקשורת אשר הינם חלק מרכזי וחשוב בתפקודו של כל בית מגורים,בניין משרדים או מפעל.
+                                <BR>
+                                בשנים האחרונות בהם מושתת ההתנהלות העסקית של ארגונים רבים על תקשורת מסוג אחר, באמצעות האינטרנט או הטלפונים, חלה מהפכה טכנולוגית שדורשת מתן פתרונות תקשורת מתקדמים אשר חברת רום מערכות התראה ותקשורת מספקת.
+                                <BR>
+                                מגוון פתרונות וכלים שחברתנו מספקת באים ליידי ביטוי בהבטים שונים, כמו למשל:
+<span class="secondOl">
+ *ציוד תקשורת מגוון המאפשר מענה מהיר ומדוייק לצרכיו של הלקוח תוך שימוש במספר רשתות
+</span>
+<span class="secondOl">
+*תשתיות תקשורת הכוללות ציוד רשת איכותי ומתאים
+</span>
+<span class="secondOl">
+*פריסת תשתית לרשתות הטלפוניה והאינטרנט
+</span>
+<span class="secondOl">
+*עוד כל מיני דברים שצריך להוסיף.
+</span>
+                            </p>
+                        </section>
+                    </div>
+                    <div ng-if="currentLink == 'fire'">
+                        <section class="fireStyle">
+                            <h1>מערכת גילוי אש ועשן</h1>
+                            <p>
+                                רום מערכות התראה ותקשורת מספקות מערכות לגילוי אש ועשן אשר נועדו לתת התרעה מוקדמת בדבר שריפה במבנה.<BR>
+                                הרכיב העיקרי של מערכות אלו הוא גלאי העשן. העיקרון העומד בבסיס המערכת הוא פיזור של גלאיי עשן במבנה, בצורה שתאפשר גילוי מוקדם במידה סבירה של שריפה, ושילובם באמצעי התרעה שיעודם הבאת דבר קיום השריפה לידיעת הנוכחים במבנה וכוחות ההצלה.<BR>
+                                קביעת תצורת המערכת נובעת ממספר גורמים, בראש ובראשונה מידת הסיכון לבני אדם הנובעת מאופיו של המבנה.<BR>
+                            </p>
+                        </section>
+                    </div>
+                    <div ng-if="currentLink == 'accsses'">
+                        <section class="accessStyle">
+                            <h1>Access control</h1>
+                            <p>
+
+                                מערכת בקרת הכניסה משלבת חומרה ותוכנה ונותנת פתרון מושלם לניהול מבקרים,עובדים, בקרת כניסה לאתרי הארגון, מידור ניהול הרשאות ואירועים בשילוב קוראים מכל הסוגים כולל קוראי טביעת אצבע, קורא חכם ועוד.
+                                <BR><BR>
+                                רום מערכות התראה ותקשורת מודעת לכך שכל עסק,בית מגורים,מפעל או ארגון זקוק ליכולת לזהות ולעקוב  בצורה ברורה אחר עובדים,מבקרים אשר נכנסים לשטחו הפיזי בכל רגע נתון ביום ובשנה.
+                                <BR>
+                                רום מערכות מספקת מערכת בקרת כניסה אשר יתרונותייה הבולטים הינם:
+                                        <span class="secondOl">
+                                        *ניהול מורשי כניסה(או מורשים) – לספק הרשאות כניסה
+                                        </span>
+                                        <span class="secondOl">
+                                        *ניהול בקרים – על מנת לקבוע את אופן העבודה ולספק דוחות מתאימים.
+                                        </span>
+                                        <span class="secondOl">
+                                        *ניהול התראות
+                                        </span>
+                            </p>
+                            <div></div>
+                        </section>
+                    </div>
+                    <div ng-if="currentLink == 'cctv'">
+                        <article class="cctvStyle">
+                            <h1>מערכת מצלמות אבטחה</h1>
+                            <p> מערכת טלוויזיה במעגל סגור (close circuit television),  היא מערכת טלוויזיה אשר נבדלת מטלוויזיה בשידור פתוח, בכך שהיא משדרת את התמונות הנקלטות במצלמותייה אך ורק לקבוצה מצומצת ומוגדרת של יעדים.</p>
+                            <p>
+                                <span style="font-weight: bold;font-size: 20px">מצלמות אבטחה </span><br>
+                               <span style="font-weight: bold"> גלויות:</span> רום מערכות מבצעת התקנה של מערכת מצלמות אבטחה בטכנולוגיית טלוויזיה במעגל סגור למגוון שימושים.
+                                <BR>
+                                הטכנולוגייה של טלוויזיה במעגל סגור, מאפשרת לך כלקוח לצפות ולהקליט ארועים אשר מתרחשים במקומות אסטרטגים וחשובים שדורשים פיקוח של 24 שעות.
+                                <BR>
+                                חברתנו מציעה מגוון רחב של מוצרים מתחום מערכות ההקלטה והצילום:
+    <span class="secondOl">
+    *מצלמות צבעוניות עם רזולוציית HD
+    </span>
+    <span class="secondOl">
+     *מצלמות אינפרא אדום – ראיית לילה
+    </span>
+    <span class="secondOl">
+    *מצלמות IP
+    </span>
+    <span class="secondOl">
+    *מצלמות ממונעות(למעלה,למטה,ימינה,שמאלה,זום)
+    </span>
+                        </p>
+                            <p>
+                               <span style="font-weight: bold"> סמויות:</span> בנוסף למערכת המצלמות האבטחה הגלויות, רום מערכות התראה ותקשורת מספקת עוד דרך יצירתית לצפות ולהקליט ארועים אשר מתרחשים במקומות אסטרטגיים ואין שום דרך לגלות אותם.
+
+                            </p>
+                        </article>
+                    </div>
+                    <div ng-if="currentLink == 'support'">
+                        <article class="monitoring">
+                            <h1>Monitoring</h1>
+                            <p>
+                                רום מערכות התראה ותקשורת מספקת 24 שעות ביממה שירותי אבטחה מהירים, אמינים ויעילים לעסקייך ורכושך.<br><br>
+                                חברת רום מערכות התראה ותקשורת משגיחה ועוקבת אחר מערכות האזעקה,מצלמות אבטחה ושאר שרותים ייחודיים אשר סופקו ע"יי חברתנו.
+                            </p>
+                            <div></div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+            <div class="right_content"> </div>
+            <div class="clear"></div>
+            <div class="footer">
+                <p>© כל הזכויות שמורות לרום מערכות התראה ותקשורת בע"מ</p>
+            </div>
+        </div>
+
+        <!-- Residential Section -->
+        <div class="main_residential_wrapper main" ng-show="currentPage == 'residential'">
+            <div class="fixLogoDetails">
+                <img src="images/FINAL2.png">
+                <p>רחובות, רציף הרכבת</p>
+                <p>טלפון 1 : 0544-245230</p>
+                <p>טלפון 2 : 0545-333370</p>
+                <p>פקס : 08-9361378</p>
+                <p>Rom@netvision.net.il</p>
+                <img src="icons/mobile-control.png">
+            </div>
+            <div class="left_content blackBg" ng-controller="ResidentialCntrl">
+                <header style="background-image: url(images/backgroundResi.jpg); background-position: center;background-repeat: no-repeat;">
+                    <script> document.write(main_menu) </script>
+                    <nav class="submenu">
+                        <ul>
+                            <li ng-class='{icon_hover:currentLink == "security"}' ng-click="currentLink = 'security';  " style="margin-left: 88px; width: 100px;height: 100px;background-image: url('images/icons/security1.png')"> <span> אבטחה </span>  </li>
+                            <li ng-class='{icon_hover:currentLink == "network"}' ng-click="currentLink = 'network'; " style="width: 100px;height: 100px;background-image: url('images/icons/network2.png')"> <span> רשתות </span> </li>
+                            <li ng-class='{icon_hover:currentLink == "accsses"}' ng-click="currentLink = 'accsses'; " style="width: 100px;height: 100px;background-image: url('images/icons/accsses4.png')"> <span> בקרת כניסה </span> </li>
+                            <li ng-class='{icon_hover:currentLink == "cctv"}' ng-click="currentLink = 'cctv'; " style="width: 100px;height: 100px;background-image: url('images/icons/CCTV2.png')"> <span> מצלמות </span> </li>
+                            <li ng-class='{icon_hover:currentLink == "support"}' ng-click="currentLink = 'support'; " style="width: 100px;height: 100px;background-image: url('images/icons/customer_service.png')"> <span> השגחה ופיקוח </span> </li>
+                        </ul>
+                    </nav>
+                </header>
+                <section  dir="rtl">
+                    <div ng-if="currentLink == ''">
+                        <section class="residentialInfo">
+                            <h1>שירותים פרטיים</h1>
+                            <p>
+                                אנו, ב- רום מערכות מבינים שביתך הוא ההשקעה המשתלמת והחשובה ביותר שלך.
+                                ביתך מספק לך ולמשפחתך מקום מבטחים מפני המספר העולה של פריצות ואיומי אבטחה. זהו המקום שבו אתה יכול להירגע ולברוח מהכאוס והלחץ של החיים היום יומיים.
+                                הבית שלך ראוי להגנה, שיפור ושימור.
+                                רום מערכות מחוייבת קודם כל לאנשים – אנו רוצים להבטיח שמשפחתך והאהובים עליך יהיו תמיד בטוחים ומוגנים.
+                            </p>
+                            <p></p>
+                        </section>
+                    </div>
+                    <div ng-if="currentLink == 'security'">
+                        <h1>אבטחה</h1>
+                        <ol>
+                            <li>
+                                <span> גלאים </span>
+<BR>
+רום מערכות מציעה מערכת אזעקה קוויות ואלחוטיות, מ-8 אזורים ועד 255 אזורים בהתאם להיקף, התקציב, הצרכים ואופי ההגנה הנדרש.
+<BR>
+בסל המוצרים שלנו ניתן למצוא מגוון רחב של גלאים, למשל: גלאי נפח,גלאים פסיביים ואקטיבים,גלאי סורג,גלאים ועוד.
+<BR>
+לנוחיות הלקוח ולהגנה מלאה, יש אפשרות לחבר את מערכת האזעקה ישירות למוקד חיצוני,חיבור ללחצני מצוקה,שליטה והפעלה מרחוק,התראות בעזרת קווים סלולארים.
+                            </li>
+
+                            <li>
+                                <span>מצלמות אבטחה </span> <BR>
+ גלויות: רום מערכות מבצעת התקנה של מערכת מצלמות אבטחה בטכנולוגיית טלוויזיה במעגל סגור למגוון שימושים.
+<BR>
+ הטכנולוגייה של טלוויזיה במעגל סגור, מאפשרת לך כלקוח לצפות ולהקליט ארועים אשר מתרחשים במקומות אסטרטגים וחשובים שדורשים פיקוח של 24 שעות.
+<BR>
+ חברתנו מציעה מגוון רחב של מוצרים מתחום מערכות ההקלטה והצילום:
+    <span class="secondOl">
+    *מצלמות צבעוניות עם רזולוציית HD
+    </span>
+    <span class="secondOl">
+     *מצלמות אינפרא אדום – ראיית לילה
+    </span>
+    <span class="secondOl">
+    *מצלמות IP
+    </span>
+    <span class="secondOl">
+    *מצלמות ממונעות(למעלה,למטה,ימינה,שמאלה,זום)
+    </span>
+
+סמויות: בנוסף למערכת המצלמות האבטחה הגלויות, רום מערכות התראה ותקשורת מספקת עוד דרך יצירתית לצפות ולהקליט ארועים אשר מתרחשים במקומות אסטרטגיים ואין שום דרך לגלות אותם.
+
+                            </li>
+
+                            <li>
+                               <span> DVR </span>
+                                <BR>
+                                מערכת הקלטת מצלמות במעגל סגור(DVR) שדרכן ניתן לצפות בזמן אמת במצלמות האבטחה, לשלוט במצלמות ממונעות, לבצע שיחזור וגיבוי ולהפעיל מסרים.
+                                שרתיי וידיאו לאיחסון הקלטות.
+                                <BR>
+                                אינטגרציה מלאה בין מערכת מצלמות האבטחה לבין מערכת האזעקה.
+                            </li>
+                        </ol>
+                    </div>
+                    <div ng-if="currentLink == 'network'">
+                        <section class="networkStyle">
+                            <h1>רשתות תקשורת</h1>
+                            <p>
+
+
+                                רום מערכות התראה ותקשורת בע"מ מספקים פתרונות תקשורת אשר הינם חלק מרכזי וחשוב בתפקודו של כל בית מגורים,בניין משרדים או מפעל.
+                                <BR>
+                                בשנים האחרונות בהם מושתת ההתנהלות העסקית של ארגונים רבים על תקשורת מסוג אחר, באמצעות האינטרנט או הטלפונים, חלה מהפכה טכנולוגית שדורשת מתן פתרונות תקשורת מתקדמים אשר חברת רום מערכות התראה ותקשורת מספקת.
+                                <BR>
+                                מגוון פתרונות וכלים שחברתנו מספקת באים ליידי ביטוי בהבטים שונים, כמו למשל:
+<span class="secondOl">
+ *ציוד תקשורת מגוון המאפשר מענה מהיר ומדוייק לצרכיו של הלקוח תוך שימוש במספר רשתות
+</span>
+<span class="secondOl">
+*תשתיות תקשורת הכוללות ציוד רשת איכותי ומתאים
+</span>
+<span class="secondOl">
+*פריסת תשתית לרשתות הטלפוניה והאינטרנט
+</span>
+<span class="secondOl">
+*עוד כל מיני דברים שצריך להוסיף.
+</span>
+                            </p>
+                        </section>
+                    </div>
+                    <div ng-if="currentLink == 'accsses'">
+                        <section class="accessStyle">
+                            <h1>Access control</h1>
+                            <p>
+
+                                מערכת בקרת הכניסה משלבת חומרה ותוכנה ונותנת פתרון מושלם לניהול מבקרים,עובדים, בקרת כניסה לאתרי הארגון, מידור ניהול הרשאות ואירועים בשילוב קוראים מכל הסוגים כולל קוראי טביעת אצבע, קורא חכם ועוד.
+                                <BR><BR>
+                                רום מערכות התראה ותקשורת מודעת לכך שכל עסק,בית מגורים,מפעל או ארגון זקוק ליכולת לזהות ולעקוב  בצורה ברורה אחר עובדים,מבקרים אשר נכנסים לשטחו הפיזי בכל רגע נתון ביום ובשנה.
+                                <BR>
+                                רום מערכות מספקת מערכת בקרת כניסה אשר יתרונותייה הבולטים הינם:
+                                        <span class="secondOl">
+                                        *ניהול מורשי כניסה(או מורשים) – לספק הרשאות כניסה
+                                        </span>
+                                        <span class="secondOl">
+                                        *ניהול בקרים – על מנת לקבוע את אופן העבודה ולספק דוחות מתאימים.
+                                        </span>
+                                        <span class="secondOl">
+                                        *ניהול התראות
+                                        </span>
+                            </p>
+                            <div></div>
+                        </section>
+                    </div>
+                    <div ng-if="currentLink == 'cctv'">
+                        <article class="cctvStyle">
+                            <h1>מערכת מצלמות אבטחה</h1>
+                            <p> מערכת טלוויזיה במעגל סגור (close circuit television),  היא מערכת טלוויזיה אשר נבדלת מטלוויזיה בשידור פתוח, בכך שהיא משדרת את התמונות הנקלטות במצלמותייה אך ורק לקבוצה מצומצת ומוגדרת של יעדים.</p>
+                            <p>
+                                <span style="font-weight: bold;font-size: 20px">מצלמות אבטחה </span><br>
+                                <span style="font-weight: bold"> גלויות:</span> רום מערכות מבצעת התקנה של מערכת מצלמות אבטחה בטכנולוגיית טלוויזיה במעגל סגור למגוון שימושים.
+                                <BR>
+                                הטכנולוגייה של טלוויזיה במעגל סגור, מאפשרת לך כלקוח לצפות ולהקליט ארועים אשר מתרחשים במקומות אסטרטגים וחשובים שדורשים פיקוח של 24 שעות.
+                                <BR>
+                                חברתנו מציעה מגוון רחב של מוצרים מתחום מערכות ההקלטה והצילום:
+    <span class="secondOl">
+    *מצלמות צבעוניות עם רזולוציית HD
+    </span>
+    <span class="secondOl">
+     *מצלמות אינפרא אדום – ראיית לילה
+    </span>
+    <span class="secondOl">
+    *מצלמות IP
+    </span>
+    <span class="secondOl">
+    *מצלמות ממונעות(למעלה,למטה,ימינה,שמאלה,זום)
+    </span>
+                            </p>
+                            <p>
+                                <span style="font-weight: bold"> סמויות:</span> בנוסף למערכת המצלמות האבטחה הגלויות, רום מערכות התראה ותקשורת מספקת עוד דרך יצירתית לצפות ולהקליט ארועים אשר מתרחשים במקומות אסטרטגיים ואין שום דרך לגלות אותם.
+
+                            </p>
+                        </article>
+                    </div>
+                    <div ng-if="currentLink == 'support'">
+                        <article class="monitoring">
+                            <h1>Monitoring</h1>
+                            <p>
+                                רום מערכות התראה ותקשורת מספקת 24 שעות ביממה שירותי אבטחה מהירים, אמינים ויעילים לעסקייך ורכושך.<br><br>
+                                חברת רום מערכות התראה ותקשורת משגיחה ועוקבת אחר מערכות האזעקה,מצלמות אבטחה ושאר שרותים ייחודיים אשר סופקו ע"יי חברתנו.
+                            </p>
+                            <div></div>
+                        </article>
+                    </div>
+
+                </section>
+            </div>
+            <div class="right_content"> </div>
+            <div class="clear"></div>
+            <div class="footer">
+                <p>© כל הזכויות שמורות לרום מערכות התראה ותקשורת בע"מ</p>
+            </div>
+        </div>
+
+        <!-- Our Customers Section -->
+        <div class="main_customers_wrapper main" ng-show="currentPage == 'ourCustomers'" ng-controller="OurCustomers">
+            <div class="fixLogoDetails">
+                <img src="images/FINAL2.png">
+                <p>רחובות, רציף הרכבת</p>
+                <p>טלפון 1 : 0544-245230</p>
+                <p>טלפון 2 : 0545-333370</p>
+                <p>פקס : 08-9361378</p>
+                <p>Rom@netvision.net.il</p>
+                <img src="icons/mobile-control.png">
+            </div>
+            <div class="left_content blackBg" >
+                <header style="background-image: url('images/customersBg.jpg'); background-position: center;background-repeat: no-repeat;">
+                    <script> document.write(main_menu) </script>
+                </header>
+                <section class="customers">
+                    <h1> מבחר לקוחותינו </h1>
+                    <div class="customer_image_wrapper" ng-repeat="customer in customers">
+                        <img ng-src="{{customer.img}}">
+                        <p> {{customer.company}} </p>
+                    </div>
+                </section>
+            </div>
+            <div class="right_content"> </div>
+            <div class="clear"></div>
+            <div class="footer">
+                <p>© כל הזכויות שמורות לרום מערכות התראה ותקשורת בע"מ</p>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="main_about_wrapper main" ng-show="currentPage == 'about'" ng-controller="aboutCtrl">
+            <div class="fixLogoDetails">
+                <img src="images/FINAL2.png">
+                <p>רחובות, רציף הרכבת</p>
+                <p>טלפון 1 : 0544-245230</p>
+                <p>טלפון 2 : 0545-333370</p>
+                <p>פקס : 08-9361378</p>
+                <p>Rom@netvision.net.il</p>
+                <img src="icons/mobile-control.png">
+            </div>
+            <div class="left_content blackBg" >
+                <header style="background-image: url(images/aboutBgCertif.png); background-position: center;background-repeat: no-repeat;">
+                    <script> document.write(main_menu) </script>
+                </header>
+                <section class="about">
+                    <div style="width: 90% !important; margin:0 auto; display: block">
+                        <h1> אודות</h1>
+                        <p dir="rtl">
+
+                            חברת רום מערכות התראה ותקשורת בע"מ היא מהמובילות בישראל בתחום מערכות האבטחה והתקשורת, תוך מתן שירותיים יחודיים במערכות מבוססות מתח נמוך,שליטה ובקרה ,טלוויזיה במעגל סגור ועוד.
+                            <BR><BR>
+                            לחברת רום מערכות התראה ותקשורת בע"מ למעלה מ-35 שנות ניסיון בתחום הייעוץ , סיקור ותכנון מערכות אבטחה וכן בפיקוח ויישום הפתרונות בשטח. תחומי העיסוק וההתמחות המיוחדים של החברה מקנים לה את היכולת להתמודד עם "אתגרי" ביטחון סבוכים ככל שיהיו – ולהצליח.
+                            <BR><BR>
+                            רום מערכות מתקינה,מנטרת ומתחזקת מערכות אבטחה ותקשורת לבתי מגורים,בתי עסקים,מפעלים ותאגידים ממשלתיים. אנו מספקים לקהל לקוחותינו תמיכה טכנית,שירותי תחזוקה ומתן פתרונות תוך הגעה לביתו של הלקוח בכל עת- 24 שעות ביממה, 365 יום בשנה.
+                            <BR><BR>
+                            רום מערכות התראה ותקשורת בע"מ משתפת פעולה עם מיטב חברות הייעוץ והתכנון בתחום הביטחון והתקשורת , זאת במטרה להשלים את מעגל הידע הקיים .דבר המאפשר לנו לספק ללקוחותינו "מטריית ביטחון" כולל יעוץ , אבטחת מידע ומערכות תקשורת – מהמתקדמות בעולם.
+                            <BR>
+                            ברשות החברה הציוד החדיש ביותר הקיים בשוק . החברה נמצאת בקשרי עבודה ומייצגת מספר יצרני ציוד ביטחון  מהגדולים בעולם.
+                            <BR><BR>
+                            העובדים שלנו, ברום מערכות, עברו הכשרה מקצועית, פרטנית ואינטנסיבית בתחומי האבטחה, ביטחון, התקנה של מערכות טכנולוגיות מהחדשות ביותר שיש בשוק .
+                            <BR><BR>
+                            לצוות העובדים של רום מערכות נסיון עשיר בשירות לקוחות ורשימה מתמשכת של לקוחות מרוצים.
+                            <BR><BR>
+                            אנו מספקים שרות כל יום בשנה בכל שעות היממה. השירות הניתן ללקוחות, ניתן על ידי העובדים שלנו, אנשים אמיתיים(!) המספקים ללקוחותינו בכל מקום מענה לכל שאלה מקצועית. למעשה,אנו מתחייבים ששיחתך תמיד תענה בכל זמן אפשרי,מכל מקום בארץ ובעולם על מנת לספק שירות אמין,מקצועי ויעיל.
+                            <BR><BR>
+                            רום מערכות מספקת ללקוחותיה שירותי אבטחה ביתיים,אבטחה למפעלים ולעסקים ,התקנת מערכות כיבוי אש, מערכת מצלמות בטלוויזיה במעגל סגור תוך שימוש בטכנולוגיות מהמתקדמות והמפתוחות ביותר בשוק.
+                            <BR><BR>
+<span class="#">                           לחץ כאן</span> ליצירת קשר מיידי ומהיר עם רום מערכות התראה ותקשורת בע"מ.
+
+                        </p>
+                    </div>
+                </section>
+            </div>
+            <div class="right_content"> </div>
+            <div class="clear"></div>
+            <div class="footer">
+                <p>© כל הזכויות שמורות לרום מערכות התראה ותקשורת בע"מ</p>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="main_about_wrapper main" ng-show="currentPage == 'contact'" ng-controller="contactCtrl">
+            <div class="fixLogoDetails">
+                <img src="images/FINAL2.png">
+                <p>רחובות, רציף הרכבת</p>
+                <p>טלפון 1 : 0544-245230</p>
+                <p>טלפון 2 : 0545-333370</p>
+                <p>פקס : 08-9361378</p>
+                <p>Rom@netvision.net.il</p>
+                <img src="icons/mobile-control.png">
+            </div>
+            <div class="left_content blackBg" >
+                <header style="background-image: url(images/contactus1.jpg); background-position: center;background-repeat: no-repeat;">
+                    <script> document.write(main_menu) </script>
+                </header>
+                <section class="contact">
+                    <h1>צור קשר</h1>
+                    <p>מלא את הפרטים הבאים, ואנו נחזור אלייך במהרה ונסייע לך במגוון השירותים אותם אנו מציעים.</p>
+                    <form action="contact.php" method="post">
+                        <label>(*) - שדה חובה</label>
+                        <label>(*) שם מלא: </label><input type="text" name="fullName" size="40" maxlength="25" required>
+                        <label>(*) אימייל: </label><input type="email" name="email" size="40" required>
+                        <label>מעוניין בשרותים: </label>
+                        <input type="checkbox" name="services[]" value="residential">פרטיים
+                        <input type="checkbox" name="services[]" value="commercial">מסחריים
+                        <input type="checkbox" name="services[]" value="other">אחר
+                        <label>תוכן ההודעה: </label><input type="text" id="msgField" size="100" name="msgField">
+                        <input type="submit" value="שלח" name="formSubmit">
+                    </form>
+                </section>
+            </div>
+            <div class="right_content"> </div>
+            <div class="clear"></div>
+            <div class="footer">
+                <p>© כל הזכויות שמורות לרום מערכות התראה ותקשורת בע"מ</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
